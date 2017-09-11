@@ -443,13 +443,7 @@ static SlideNavigationController *singletonInstance;
 		customButton.target = self;
 		return customButton;
 	}
-	return nil
-	// else
-	// {
-	// 	NSBundle* bundle = [NSBundle bundleForClass:[SlideNavigationController class]];
-	// 	UIImage *image = [UIImage imageNamed:MENU_IMAGE inBundle:bundle compatibleWithTraitCollection:nil];
-	// 	return [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:selector];
-	// }
+	return nil;
 }
 
 - (BOOL)shouldDisplayMenu:(Menu)menu forViewController:(UIViewController *)vc
