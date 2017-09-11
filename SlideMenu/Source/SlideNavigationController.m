@@ -547,6 +547,11 @@ static SlideNavigationController *singletonInstance;
         }
     }
 	
+	//fix for RTL languages
+	if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
+        rect.origin.x *= -1;
+    }
+
 	self.view.frame = rect;
 	[self updateMenuAnimation:menu];
 }
