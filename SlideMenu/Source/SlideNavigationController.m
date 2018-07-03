@@ -890,12 +890,12 @@ static SlideNavigationController *singletonInstance;
     if ([self isMenuOpen]){
         [self closeMenuWithCompletion:^{
             [self->_rightMenu.view removeFromSuperview];
-            self->_rightMenu = leftMenu;
+            self->_rightMenu = rightMenu;
             self->_lastRevealedMenu = Nil;
         }];
     }else{
         [_rightMenu.view removeFromSuperview];
-        _rightMenu = leftMenu;
+        _rightMenu = rightMenu;
         _lastRevealedMenu = Nil;
     }
 }
