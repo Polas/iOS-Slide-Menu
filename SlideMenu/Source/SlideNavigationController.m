@@ -874,6 +874,7 @@ static SlideNavigationController *singletonInstance;
     [_leftMenu.view removeFromSuperview];
     
     _leftMenu = leftMenu;
+    _lastRevealedMenu = Nil;
 }
 
 - (void)setRightMenu:(UIViewController *)rightMenu
@@ -881,6 +882,7 @@ static SlideNavigationController *singletonInstance;
     [_rightMenu.view removeFromSuperview];
     
     _rightMenu = rightMenu;
+    _lastRevealedMenu = Nil;
 }
 
 @end
