@@ -871,18 +871,33 @@ static SlideNavigationController *singletonInstance;
 
 - (void)setLeftMenu:(UIViewController *)leftMenu
 {
-    [_leftMenu.view removeFromSuperview];
-    
-    _leftMenu = leftMenu;
-    _lastRevealedMenu = Nil;
+    if ([self isMenuOpen]){
+        [self closeMenuWithCompletion:^{
+            [self->_leftMenu.view removeFromSuperview];
+            self->_leftMenu = leftMenu;
+            self->_lastRevealedMenu = Nil;
+        }];
+    }else{
+        [_leftMenu.view removeFromSuperview];
+        _leftMenu = leftMenu;
+        _lastRevealedMenu = Nil;
+    }
+
 }
 
 - (void)setRightMenu:(UIViewController *)rightMenu
 {
-    [_rightMenu.view removeFromSuperview];
-    
-    _rightMenu = rightMenu;
-    _lastRevealedMenu = Nil;
+    if ([self isMenuOpen]){
+        [self closeMenuWithCompletion:^{
+            [self->_rightMenu.view removeFromSuperview];
+            self->_rightMenu = leftMenu;
+            self->_lastRevealedMenu = Nil;
+        }];
+    }else{
+        [_rightMenu.view removeFromSuperview];
+        _rightMenu = leftMenu;
+        _lastRevealedMenu = Nil;
+    }
 }
 
 @end
