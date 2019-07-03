@@ -543,8 +543,14 @@ static SlideNavigationController *singletonInstance;
     }
 	
 	//fix for RTL languages
-	if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
-        rect.origin.x *= -1;
+    if (@available(iOS 9.0, *)) {
+        if ([UIView appearance].semanticContentAttribute == UISemanticContentAttributeForceRightToLeft) {
+            rect.origin.x *= -1;
+        }
+    } else {
+        if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
+            rect.origin.x *= -1;
+        }
     }
 
 	self.view.frame = rect;
